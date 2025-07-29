@@ -47,5 +47,30 @@ def data_collection():
         'Year': year,
         'GPA': gpa
     })
-    data['Education'] = edu_entries        
-        
+    data['Education'] = edu_entries
+    
+    #4th section: Collecting user work experience
+    print("\n-- Work Experience --")
+    print("Enter your work experience according to the prompts, type FINISH to end")
+    work_entries = []
+    while True:
+        tile = get_user_info_input("Enter your job title (eg. Software Engineer): ")
+        if title.upper() == "FINISH":
+            break
+        company = get_user_info_input("Enter the company name: ")
+        duration = get_user_info_input("Enter the duration of your employment (eg. 2 years): ")
+        description = get_user_info_input("Enter a brief description of your role: ")
+        print("Enter a description of your role, type FINISH to end")
+        desc_lines = []
+        while True:
+            line = input()
+            if line.upper() == "FINISH":
+                break
+            desc_lines.append(line)
+        work_entries.append({
+            'Title': title,
+            'Company': company,
+            'Duration': duration,
+            'Description': "\n".join(desc_lines)
+        })
+    data['Work Experience'] = work_entries              
