@@ -14,7 +14,7 @@ def get_user_info_input(prompt):
 
 def data_collection():
     print("\n--- Why not share your data with the Ogre? ---")
-    print("Let's start! Just follow the instructions and provide the info") # Corrected typo
+    print("Let's start! Just follow the instructions and provide the info")
 
     data = {}
 
@@ -22,8 +22,8 @@ def data_collection():
     print("\n ---Contact Information---")
     data['Name'] = get_user_info_input("Enter your Full name, eg. Hasan Fuad: ")
     data['Email'] = get_user_info_input("Enter your Email address: ")
-    data['Phone Number'] = get_user_info_input("Enter your phone number, with country code (optional): ") # Added optional note
-    data['Address'] = get_user_info_input("Enter your current address (optional): ") # Added optional note
+    data['Phone Number'] = get_user_info_input("Enter your phone number, with country code (optional): ") 
+    data['Address'] = get_user_info_input("Enter your current address (optional): ") 
     data['github'] = get_user_info_input("GitHub Profile URL (optional): ")
 
     # 2nd section: User's own short story
@@ -82,7 +82,7 @@ def data_collection():
 
     #5th section: Collecting user skills
     print("\n-- Skills --") 
-    data['Skills'] = get_user_info_input("Enter your skills, separated by commas (Eg. Python, Java, C++): ") # Added assignment
+    data['Skills'] = get_user_info_input("Enter your skills, separated by commas (Eg. Python, Java, C++): ")
 
     print("\nData collection is complete, thank you!") 
     return data
