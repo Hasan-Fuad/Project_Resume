@@ -1,3 +1,9 @@
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.enums import TA_CENTER
+
 #Trying to get user input 
 
 def get_user_info_input(prompt):
@@ -17,6 +23,7 @@ def data_collection():
     data['Email'] = get_user_info_input("Enter your Email address: ")
     data['Phone Number'] = get_user_info_input("Enter your phone number, with country code: ")
     data['Address'] = get_user_info_input("Enter your current address: ")
+    data['github'] = get_user_info_input("GitHub Profile URL (optional): ")
     
     # 2nd section: User's own short story 
     print("\n--- Your Story in short---")
@@ -80,4 +87,66 @@ def data_collection():
     print("Enter you skills, seperated by commas(Eg. Python, Java, C++)")
     print("\n data collection is complete, thank you!")
     
-                  
+    #After user input, now I try to to create the file itself
+    
+    def generate_resume(data, output_filepath = "interactive_resume.pdf"):
+        
+        doc = SimpleDocTemplate(output_filepath, pagesize = letter)
+        styles = getSampleStyleSheet()
+        
+        #Making Custom styles
+        name_style = ParagraphStyle(
+            'Name',
+            parent=styles['h1'],
+            fontSize= 25,
+            leading= 30,
+            alignment= TA_CENTER,
+            spaceAfter= 0.5 * inch,
+        )
+        contact_style = ParagraphStyle(
+        'ContactInfo',
+        parent=styles['Normal'],
+        fontSize=10,
+        leading=12,
+        alignment=TA_CENTER,
+        spaceAfter=0.15 * inch,
+        )
+        section_title_style = ParagraphStyle(
+            'SectionTitle',
+            parent = styles['h2'],
+            fontSize = 14,
+            leading= 16,
+            spaceBefore= 0.2 * inch,
+            spaceAfter= 0.1 * inch,
+            fontName= 'Helvetica-Bold',
+        )
+        bold_text_style = ParagraphStyle(
+        'BoldText',
+        parent=styles['Normal'],
+        fontSize=11,
+        leading=13,
+        fontName='Helvetica-Bold',
+        spaceAfter=0.03 * inch
+        )
+        normal_text_style = ParagraphStyle(
+            'NormalText',
+            parent=styles['Normal'],
+            fontSize=10,
+            leading=12,
+            spaceAfter=0.05 * inch,
+        )
+        bullet_style = ParagraphStyle(
+            'Bullet',
+            parent=normal_text_style,
+            leftIndent=0.25 * inch,
+            firstLineIndent=-0.15 * inch, 
+            bulletIndent=0.0 * inch,
+            bulletText='•',
+            fontSize=10,
+            leading=12,
+            spaceAfter=0.03 * inch
+        )
+        
+        
+        
+                      
