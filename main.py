@@ -73,4 +73,11 @@ def data_collection():
             'Duration': duration,
             'Description': "\n".join(desc_lines)
         })
-    data['Work Experience'] = work_entries              
+    data['Work Experience'] = work_entries
+    
+    #5th section: Collecting user skills
+    priint("/n-- Skills --")
+    print("Enter you skills, seperated by commas(Eg. Python, Java, C++)")
+    print("\n data collection is complete, thank you!")
+    
+                  
